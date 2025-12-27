@@ -1,0 +1,16 @@
+"""
+Task: Height of tree
+Time Complexity: O(n)
+Space Complexity: O(h) — recursion stack
+"""
+
+class Node:
+    def __init__(self,data): self.data=data; self.left=None; self.right=None
+
+def height(root):
+    if not root: return 0
+    return 1+max(height(root.left), height(root.right))
+
+if __name__=='__main__':
+    root=Node(1); root.left=Node(2); root.right=Node(3); root.left.left=Node(4)
+    print('Height:', height(root))
